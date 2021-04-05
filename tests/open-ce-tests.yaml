@@ -1,0 +1,14 @@
+tests:
+  - name: Setup pathy Tests
+    command: |
+        PATHY_VERSION=$(python -c "import pathy.about; print(pathy.about.__version__)")
+        PATHY_COMMIT=v${PATHY_VERSION#*+}
+        conda install -y git
+        git clone https://github.com/justindujardin/pathy.git
+        cd pathy
+        git checkout ${PATHY_COMMIT}
+        conda install -y pytest>=4.6.5 pytest-timeout mock
+  - name: Run pathy tests
+    command: |
+        cd pathy
+        pytest -v -k "not test_clients_get_client_works_with_builtin_schems and not test_gcs_default_credentials_error_is_preserved" pathy/tests/
