@@ -26,7 +26,7 @@ requirements:
     - python 
     - smart_open {{ smart_open }} 
     - typer {{ typer }}
-    - dataclasses {{ dataclasses }}
+    - dataclasses {{ dataclasses }}      # [py36]
 
 test:
   imports:
@@ -40,6 +40,7 @@ test:
 about:
   home: https://github.com/justindujardin/pathy
   license: Apache-2.0
+  license_family: APACHE
   license_file: LICENSE
   summary: A Path interface for local and cloud bucket storage
   description: |
