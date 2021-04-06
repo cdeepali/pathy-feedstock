@@ -1,3 +1,4 @@
+# adapted from the conda-forge pathy recipe
 {% set name = "pathy" %}
 {% set version = "0.4.0" %}
 
