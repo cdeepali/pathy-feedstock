@@ -5,4 +5,4 @@ tests:
   - name: Run pathy tests
     command: |
         PATHY_LOCATION=$(python -c "import os; import pathy; print(os.path.dirname(pathy.__file__))")
-        pytest -v $PATHY_LOCATION/tests/
+        pytest -v -k "not test_clients_get_client_works_with_builtin_schems and not test_gcs_default_credentials_error_is_preserved" $PATHY_LOCATION/tests/
